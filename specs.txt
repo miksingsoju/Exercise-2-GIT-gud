@@ -1,0 +1,45 @@
+Fraction Specifications
+A. Fraction() can be constructed in three ways:
+    - Using a pair of integers (numerator, denominator) -> Fraction(5, 1)
+    - From another rational number -> Fraction(123)
+    - From a string -> Fraction('-3/7')
+    - All other inputs should not be accepted
+Sample Valid:
+    Fraction(5,1)
+    Fraction(5)
+    Fraction('5/7')
+    Fraction('-5/7')
+    Fraction('5/-7')
+    Fraction('-5/-7')
+    Fraction('       -5/7        ')
+Sample Invalid:
+    Fraction(1.123)
+    Fraction(5,0)
+
+    Both parameters should be instances of rational numbers
+    Both numerator and denominator can be negative
+    Can have leading or trailing whitespaces
+    Decimals/ floats are not accepted
+
+B. Method gcd(a,b) that can be called without instantiating the class
+    - Return the greatest common divisor of the integers a and b.
+    - if either a or b is nonzero, then the absolute value of gcd(a,b) is the largest integer that divides both a and b
+    - Observe proper usage of negative values
+    - gcd(0, 0) returns 0. If any of the parameters is 0, gcd() returns 0.
+C. The user of the Fraction() class has three methods to get the numerator and denominator or the fraction
+- get_numerator() returns the numerator as a string
+- Format: [sign] 'integer' where sign can only be '-' or empty string -> '1', '-1'
+- Value should be in lowest terms -> 10/2 -> numerator = 5
+- get_denominator() returns the denominator as a string
+- Value should also be in lowest terms -> 10/2 -> denominator = 1
+- get_fraction() returns the fraction in lowest terms
+- Format: [sign] 'numerator' ['/' denominator]
+
+Examples:
+    '1'
+    '-3/7'
+    '-1000'
+
+D. Others
+- Raises ZeroDivisionError if denominator is 0 regardless of how it is constructed
+- The class is immutable
