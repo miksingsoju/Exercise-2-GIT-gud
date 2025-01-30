@@ -22,7 +22,7 @@ class Fraction(object):
         # String
         def __init__(self,fractionString):
             #split the string into list of 2 numbers
-            splitNumberList = fractionString.split('/')
+            splitNumberList = fractionString.strip().split('/')
             self.numerator = splitNumberList[0]
             self.denominator = splitNumberList[1]
 
