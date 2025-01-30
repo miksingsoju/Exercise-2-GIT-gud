@@ -5,29 +5,24 @@ class Fraction(object):
         if denominator == 0:
             raise ZeroDivisionError('Denominator cannot be zero.')
         
+         #check if it is a string ('5/7') if not, keep checking if the inputs are integers
+        if  isinstance(numerator,str):
+            splitNumberList = numerator.strip().split('/')
 
-        # Pair of integers
-        if len(args) == 2:
-            if denominator == 0:
-                print('Denominator cannot be 0')
+            tempNumerator = int(splitNumberList[0])
+            tempDenominator = int(splitNumberList[1])
+            
+            if isinstance(tempNumerator,int) and isinstance(tempDenominator,int):
+                self.numerator = tempNumerator
+                self.denominator = tempDenominator
             else:
-                self.numerator = intA
-                self.denominator = intB
-
-        # Rational number
-        def __init__(self, rational):
-            if type(rational) != int:
-                print('INVALID INPUT')
-            else:
-                self.numerator = rational
-                self.denominator = 1
-
-        # String
-        def __init__(self,fractionString):
-            #split the string into list of 2 numbers
-            splitNumberList = fractionString.strip().split('/')
-            self.numerator = splitNumberList[0]
-            self.denominator = splitNumberList[1]
+                raise ValueError('Numerator and Denominator must be digits')
+            
+        elif not isinstance(numerator,int) or not isinstance(denominator,int):
+            raise ValueError('Numerator and Denominator must be Integers.') 
+        else:
+            self.numerator = numerator
+            self.denominator = denominator
 
     def gcd(a, b):
         #TODO
