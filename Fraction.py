@@ -5,18 +5,26 @@ class Fraction(object):
 
         # Pair of integers
         def __init__(self, intA, intB):
-            self.numerator = intA
-            self.denominator = intB
+            if intB == 0:
+                print('Denominator cannot be 0')
+            else:
+                self.numerator = intA
+                self.denominator = intB
 
         # Rational number
         def __init__(self, rational):
-            
-            self.numerator = rational
-            self.denominator = 1
-
+            if type(rational) != int:
+                print('INVALID INPUT')
+            else:
+                self.numerator = rational
+                self.denominator = 1
 
         # String
-        pass
+        def __init__(self,fractionString):
+            #split the string into list of 2 numbers
+            splitNumberList = fractionString.split('/')
+            self.numerator = splitNumberList[0]
+            self.denominator = splitNumberList[1]
 
     def gcd(a, b):
         #TODO
