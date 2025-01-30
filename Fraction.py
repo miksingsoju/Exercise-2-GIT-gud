@@ -2,10 +2,13 @@ class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
         #TODO constructors
+        if denominator == 0:
+            raise ZeroDivisionError('Denominator cannot be zero.')
+        
 
         # Pair of integers
-        def __init__(self, intA, intB):
-            if intB == 0:
+        if len(args) == 2:
+            if denominator == 0:
                 print('Denominator cannot be 0')
             else:
                 self.numerator = intA
