@@ -65,9 +65,19 @@ class Fraction(object):
         return str(self.denominator)
 
     def get_fraction(self):
-        lowest_numerator = self.numerator /self.gcd(self.numerator,self.denominator)
-        lowest_denominator = self.denominator / self.gcd(self.denominator, self.numerator)
-        self.numerator = lowest_numerator
-        self.denominator = lowest_denominator
+    
+        self.gcd_final = self.gcd(self.numerator,self.denominator)
+        if self.gcd_final == 0:
+            self.gcd_final = 1
+
+        self.numerator = self.numerator // self.gcd_final
+        self.denominator = self.denominator // self.gcd_final
+
+        if self.numerator == 0:
+            return str(0)
         
-        return_message = self.get_sign_of_string + self.get_numerator() + '/' + self.get_denominator
+        if '-' in str(self.numerator) and '-' in str(self.denominator):
+            return str(self.numerator).strip('-') + '/' + str(self.denominator).strip('-')
+        elif '-' in str(self.numerator) or '-' in str(self.denominator):
+            return '-'+ str(self.numerator).strip('-') + '/' + str(self.denominator).strip('-')
+        return str(self.numerator) + '/' + str(self.denominator)
