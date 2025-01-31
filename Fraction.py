@@ -59,10 +59,7 @@ class Fraction(object):
                 self.denominator = lowestTermDenominator
 
     def check_negative(self, number):
-        if number < 0:
-            return True
-        else:
-            return False
+        return number < 0
 
     @staticmethod       
     def gcd(a, b):
