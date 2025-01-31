@@ -42,12 +42,10 @@ class Fraction(object):
         pass
 
     def get_numerator(self):
-        #TODO
-        pass
+        return self.numerator
 
     def get_denominator(self):
-        #TODO
-        pass
+        return self.denominator
 
     def get_fraction(self):
         #TODO
