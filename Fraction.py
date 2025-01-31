@@ -8,12 +8,12 @@ class Fraction(object):
             raise ZeroDivisionError
         
         #check if it is a string ('5/7') if not, keep checking if the inputs are integers
-        elif  isinstance(numerator,str):
+        elif  isinstance(numerator, str):
             splitNumberList = numerator.strip().split('/')
 
             # There should only be 2 items in the list
             if len(splitNumberList) != 2:
-                return
+                print('Invalid input')
             else:
                 tempNumerator = splitNumberList[0]
                 tempDenominator = splitNumberList[1]
@@ -25,24 +25,32 @@ class Fraction(object):
                     digitDenominator = int(tempDenominator)
 
                     if digitDenominator == 0:
-                        return
+                        raise ZeroDivisionError
                     
                     if isinstance(digitNumerator,int) and isinstance(digitDenominator,int):
+                        if Fraction.check_negative(digitDenominator):
+                            digitNumerator = digitNumerator * -1
+                            digitDenominator = digitNumerator * -1
+
                         self.numerator = digitNumerator
                         self.denominator = digitDenominator
             
         elif not isinstance(numerator,int) or not isinstance(denominator,int):
-                return           
+                print('Invalid input')
         else:
             # Handles pair of integers Fraction(5,7) and rational number Fraction 10
+            if Fraction.check_negative(digitDenominator):
+                numerator = numerator * -1
+                denominator = denominator * -1
+                
             self.numerator = numerator
             self.denominator = denominator
 
-    def get_sign_of_string(numberString):
-        if numberString[0] == '-':
-            return '-'
+    def check_negative(number):
+        if number < 0:
+            return True
         else:
-            return ''
+            return False
 
     @staticmethod       
     def gcd(a, b):
