@@ -6,14 +6,20 @@ class Fraction(object):
         
         #check if it is a string ('5/7') if not, keep checking if the inputs are integers
         if  isinstance(numerator,str):
-            splitNumberList = numerator.strip().split('/')
 
-            # There should only be 2 items in the list
-            if len(splitNumberList) != 2:
+            splitNumberList = numerator.strip().split('/')
+            splitNumberListLen = len(splitNumberList)
+
+            # There should only be two items at most in splitNumberList
+            if splitNumberListLen == 1:
+                # Rational number format
+                tempNumerator = splitNumberList[0]
+            elif splitNumberListLen == 2:
+                # Fraction format
+                tempNumerator = splitNumberList[0]
+                tempDenominator = splitNumberList[1]
+            else:
                 raise ValueError('Invalid fraction format')
-            
-            tempNumerator = splitNumberList[0]
-            tempDenominator = splitNumberList[1]
             
             # Strip the items of the signs
             if tempNumerator.strip('-').isdigit() and tempDenominator.strip('-').isdigit():
