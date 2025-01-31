@@ -64,5 +64,9 @@ class Fraction(object):
         return str(self.denominator)
 
     def get_fraction(self):
-        #TODO
-        pass
+        lowest_numerator = self.numerator /self.gcd(self.numerator,self.denominator)
+        lowest_denominator = self.denominator / self.gcd(self.denominator, self.numerator)
+        self.numerator = lowest_numerator
+        self.denominator = lowest_denominator
+        
+        return_message = self.get_sign_of_string + self.get_numerator() + '/' + self.get_denominator
