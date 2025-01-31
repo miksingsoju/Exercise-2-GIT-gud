@@ -2,10 +2,11 @@ class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
         if denominator == 0:
-            raise ZeroDivisionError('Denominator cannot be zero.')
+            self.numerator = 0
+            self.denominator = 1
         
         #check if it is a string ('5/7') if not, keep checking if the inputs are integers
-        if  isinstance(numerator,str):
+        elif  isinstance(numerator,str):
             splitNumberList = numerator.strip().split('/')
 
             # There should only be 2 items in the list
@@ -23,7 +24,8 @@ class Fraction(object):
                     digitDenominator = int(tempDenominator)
 
                     if digitDenominator == 0:
-                        raise ZeroDivisionError('Denominator cannot be zero.')
+                        self.numerator = 0
+                        self.denominator = 1
                     
                     if isinstance(digitNumerator,int) and isinstance(digitDenominator,int):
                         self.numerator = digitNumerator
