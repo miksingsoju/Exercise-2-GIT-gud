@@ -36,10 +36,26 @@ class Fraction(object):
             # Handles pair of integers Fraction(5,7) and rational number Fraction 10
             self.numerator = numerator
             self.denominator = denominator
-                
+
+    def get_sign_of_string(numberString):
+        if numberString[0] == '-':
+            return '-'
+        else:
+            return ''
+
+    @staticmethod       
     def gcd(a, b):
-        #TODO
-        pass
+        if a == 0 or b == 0:
+            return 0
+        else:
+            return Fraction.euclidean(a, b)
+        
+    @staticmethod
+    def euclidean(a, b):
+        if b == 0:
+            return abs(a)
+        else:
+            return Fraction.euclidean(b, a % b)
 
     def get_numerator(self):
         return self.numerator
