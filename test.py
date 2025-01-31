@@ -1,9 +1,14 @@
 from Fraction import Fraction
 
-integerConstructor = Fraction(1, 2)
-rationalConstructor = Fraction(25)
+integerConstructor = Fraction(36, 24)
+rationalConstructor = Fraction(-25)
 stringConstructor = Fraction('-5/-7')
 
-gcdResult = Fraction.gcd(36, 24)
-
-print(gcdResult)
+print(integerConstructor.get_numerator())
+print(integerConstructor.get_denominator())
+print()
+print(rationalConstructor.get_numerator())
+print(rationalConstructor.get_denominator())
+print()
+print(stringConstructor.get_numerator())
+print(stringConstructor.get_denominator())

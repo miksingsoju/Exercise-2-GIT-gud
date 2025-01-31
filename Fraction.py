@@ -30,21 +30,27 @@ class Fraction(object):
                     if isinstance(digitNumerator,int) and isinstance(digitDenominator,int):
                         if Fraction.check_negative(digitDenominator):
                             digitNumerator = digitNumerator * -1
-                            digitDenominator = digitNumerator * -1
+                            digitDenominator = digitDenominator * -1
 
-                        self.numerator = digitNumerator
-                        self.denominator = digitDenominator
+                        lowestTermNumerator = int(digitNumerator / Fraction.gcd(digitNumerator, digitDenominator))
+                        lowestTermDenominator = int(digitDenominator / Fraction.gcd(digitNumerator, digitDenominator))
+
+                        self.numerator = lowestTermNumerator
+                        self.denominator = lowestTermDenominator
             
         elif not isinstance(numerator,int) or not isinstance(denominator,int):
                 print('Invalid input')
         else:
             # Handles pair of integers Fraction(5,7) and rational number Fraction 10
-            if Fraction.check_negative(digitDenominator):
+            if Fraction.check_negative(denominator):
                 numerator = numerator * -1
                 denominator = denominator * -1
-                
-            self.numerator = numerator
-            self.denominator = denominator
+
+            lowestTermNumerator = int(numerator / Fraction.gcd(numerator, denominator))
+            lowestTermDenominator = int(denominator / Fraction.gcd(numerator, denominator))
+
+            self.numerator = lowestTermNumerator
+            self.denominator = lowestTermDenominator
 
     def check_negative(number):
         if number < 0:
