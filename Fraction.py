@@ -1,17 +1,19 @@
 class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
+        self.numerator = 0
+        self.denominator = 1
+
         if denominator == 0:
-            raise ZeroDivisionError('Denominator cannot be zero.')
+            raise ZeroDivisionError
         
         #check if it is a string ('5/7') if not, keep checking if the inputs are integers
-        if  isinstance(numerator,str):
+        elif  isinstance(numerator,str):
             splitNumberList = numerator.strip().split('/')
 
             # There should only be 2 items in the list
             if len(splitNumberList) != 2:
-                self.numerator = 0
-                self.denominator = 1
+                return
             else:
                 tempNumerator = splitNumberList[0]
                 tempDenominator = splitNumberList[1]
@@ -23,15 +25,14 @@ class Fraction(object):
                     digitDenominator = int(tempDenominator)
 
                     if digitDenominator == 0:
-                        raise ZeroDivisionError('Denominator cannot be zero.')
+                        return
                     
                     if isinstance(digitNumerator,int) and isinstance(digitDenominator,int):
                         self.numerator = digitNumerator
                         self.denominator = digitDenominator
             
         elif not isinstance(numerator,int) or not isinstance(denominator,int):
-                self.numerator = 0
-                self.denominator = 1            
+                return           
         else:
             # Handles pair of integers Fraction(5,7) and rational number Fraction 10
             self.numerator = numerator
