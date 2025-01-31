@@ -58,10 +58,10 @@ class Fraction(object):
             return Fraction.euclidean(b, a % b)
 
     def get_numerator(self):
-        return self.numerator
+        return str(self.numerator)
 
     def get_denominator(self):
-        return self.denominator
+        return str(self.denominator)
 
     def get_fraction(self):
         #TODO
