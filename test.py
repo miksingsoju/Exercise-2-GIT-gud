@@ -1,3 +1,5 @@
-import Fraction
+frac = '5'
 
-fractionA = Fraction(3, 4)
+splitFrac = frac.split('/')
+
+print(splitFrac)
